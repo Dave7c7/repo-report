@@ -33,8 +33,26 @@ module.exports = async function ls(flags) {
 		return;
 	}
 
+	if (flags.json) {
+		const report = [];
+
+		for (const repo of repositories) {
+			const row = { repository: repo.nameWithOwner };
+
+			// Use the full Metrics object to get all available metrics
+			for (const [metricName, metric] of Object.entries(Metrics)) {
+				if (!metric.dontPrint) {
+					row[metricName] = metric.extract(repo);
+				}
+			}
+			report.push(row);
+		}
+
+		console.log(JSON.stringify(report, null, 2));
+		return;
+	}
+
 	repositories.forEach((repository) => {
 		console.log(repository.nameWithOwner);
 	});
-	return null;
 };
