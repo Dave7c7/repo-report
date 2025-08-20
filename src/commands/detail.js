@@ -11,9 +11,8 @@ const loadingIndicator = require('../loadingIndicator');
 
 const getMetrics = require('../metrics');
 const Metrics = require('../../config/metrics');
-const ls = require('./ls');
+const ls = require('./json-report');
 
-// Metric names and their extraction method to be used on the query result (Order is preserved)
 const metricNames = Object.keys(Metrics);
 
 module.exports = async function detail(flags) {
@@ -22,7 +21,6 @@ module.exports = async function detail(flags) {
 		return null;
 	}
 
-	// Get all repositories
 	const { points, repositories } = await loadingIndicator(() => getRepositories(flags));
 
 	const metrics = getMetrics(flags.pick?.length > 0 ? [...new Set([

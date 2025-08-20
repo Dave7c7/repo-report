@@ -3,7 +3,7 @@
 const cacheArgs = require('../cacheArgs');
 const repoArgs = require('../repoArgs');
 
-const ls = require('../../src/commands/ls');
+const ls = require('../../src/commands/json-report');
 
 module.exports.description = `Lists all repositories.
 - Includes sources, forks, templates, private, and public repos by default.`;

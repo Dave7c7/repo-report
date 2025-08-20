@@ -92,16 +92,7 @@ function generateQuery(endCursor, { f }, perPage = 20) {
 	`;
 }
 
-module.exports = async function getRepositories(flags, additionalFilter) {
-	// Handle template filtering
-	let filter = additionalFilter;
-	if (flags.focus?.length === 1 && flags.focus[0] === 'templates') {
-		const templateFilter = (repo) => repo.isTemplate;
-		filter = additionalFilter ? 
-			(repo) => additionalFilter(repo) && templateFilter(repo) : 
-			templateFilter;
-	}
-
+module.exports = async function getRepositories(flags, filter) {
 	// Get all repositories
 	const { points, repositories } = await getRepos(generateQuery, flags, { filter });
 

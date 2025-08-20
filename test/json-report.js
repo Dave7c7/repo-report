@@ -55,7 +55,7 @@ test('ls command JSON output', (t) => {
 	};
 
 	// Clear cache and load the module after mocks are set up
-	const lsPath = path.resolve(__dirname, '../src/commands/ls');
+	const lsPath = path.resolve(__dirname, '../src/commands/json-report');
 	delete require.cache[lsPath];
 	const ls = originalRequire(lsPath);
 
