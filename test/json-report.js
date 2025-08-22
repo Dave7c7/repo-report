@@ -75,7 +75,7 @@ test('ls command JSON output', (t) => {
 			t.ok(Array.isArray(obj), 'JSON output should be an array of repositories');
 			t.ok(obj.length > 0, 'should have repositories');
 			t.ok(typeof firstRepo?.repository === 'string', 'repository should be a string');
-			t.ok(firstRepo?.repository.includes('/'), 'repository should be in owner/name format');
+			t.match(firstRepo?.repository, /^[^\/]+\/[^\/]+$/, 'repository should be in owner/name format');
 			t.ok('Access' in firstRepo, 'Should have an Access field');
 
 			const validAccess = ['ADMIN', 'WRITE', 'READ', 'TRIAGE', 'MAINTAIN'];
