@@ -23,10 +23,5 @@ module.exports = function repoArgs(yargs) {
 			default: false,
 			describe: 'Sort repos alphabetically, instead of by "last updated"',
 			type: 'boolean',
-		})
-		.option('json', {
-			default: false,
-			describe: 'Output report in json format',
-			type: 'boolean',
 		});
 };

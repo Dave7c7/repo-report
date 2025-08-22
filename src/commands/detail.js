@@ -11,17 +11,22 @@ const loadingIndicator = require('../loadingIndicator');
 
 const getMetrics = require('../metrics');
 const Metrics = require('../../config/metrics');
-const ls = require('./json-report');
+const ls = require('./ls');
 
 const metricNames = Object.keys(Metrics);
 
 module.exports = async function detail(flags) {
+	// Additional Filter on repos
+	let filter;
+	if (flags.focus?.length === 1 && flags.focus[0] === 'templates') {
+		filter = (repo) => repo.isTemplate;
+	}
 	if (flags.json) {
 		ls(flags);
 		return null;
 	}
 
-	const { points, repositories } = await loadingIndicator(() => getRepositories(flags));
+	const { points, repositories } = await loadingIndicator(() => getRepositories(flags, filter));
 
 	const metrics = getMetrics(flags.pick?.length > 0 ? [...new Set([
 		'Repository',
