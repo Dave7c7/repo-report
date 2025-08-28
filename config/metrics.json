@@ -10,6 +10,7 @@
 			"uniqueItems": true
 		},
 		"AllowsDeletions": { "type": ["boolean", "null"] },
+		"BlocksDestructivePushes": { "type": ["boolean", "null"] },
 		"CodeOfConduct": {
 			"oneOf": [
 				{ "type": ["boolean", "string", "null"] },
@@ -108,7 +109,9 @@
 			]
 		},
 		"WebCommitSignoffRequired": { "type": ["boolean", "null"] },
-		"WikiEnabled": { "type": ["boolean", "null"] }
+		"WikiEnabled": { "type": ["boolean", "null"] },
+		"RequireLastPushApproval": { "type": ["boolean", "null"] },
+		"RequireBranchesBeUpToDateBeforeMerging": { "type": ["boolean", "null"] }
 	},
 	"type": "object"
 }

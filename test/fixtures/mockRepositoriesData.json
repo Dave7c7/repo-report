@@ -140,7 +140,9 @@
 										"app": null
 									}
 								],
-								"requiredDeploymentEnvironments": null
+								"requiredDeploymentEnvironments": null,
+								"requireLastPushApproval": true,
+								"requiresStrictStatusChecks": true
 							}
 						},
 						"viewerPermission": "ADMIN",
@@ -180,9 +182,13 @@
 							"name": "---"
 						},
 						"defaultBranchRef": {
-							"name": "main"
+							"name": "main",
+							"branchProtectionRule": {
+							"requiresStrictStatusChecks": true
+						}
 						},
 						"viewerPermission": "ADMIN"
+
 					}
 				]
 			}

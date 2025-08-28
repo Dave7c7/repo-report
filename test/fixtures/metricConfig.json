@@ -11,6 +11,8 @@
 		"AutoMergeAllowed": false,
 		"BlankIssuesEnabled": false,
 		"SecurityPolicyEnabled": true,
+		"RequireLastPushApproval": true,
+		"RequireBranchesBeUpToDateBeforeMerging": true,
 		"License": ["MIT License", null],
 		"MergeStrategies": {
 			"MERGE": true,

@@ -24,6 +24,7 @@
     "DefBranch": "main",
     "AllowsForcePushes": false,
     "AllowsDeletions": false,
+    "BlocksDestructivePushes": true,
     "DismissesStaleReviews": false,
     "ReqApprovingReviewCount": 1,
     "ReqApprovingReviews": false,
@@ -31,7 +32,9 @@
     "ReqConversationResolution": false,
     "RequiredBranchProtectionSourcePercentage": 100,
     "WebCommitSignoffRequired": false,
-    "CodeOfConduct": [null, "Contributor Covenant"]
+    "CodeOfConduct": [null, "Contributor Covenant"],
+    "RequireLastPushApproval": true,
+    "RequireBranchesBeUpToDateBeforeMerging": true
   },
   "overrides": [],
   "repositories": {

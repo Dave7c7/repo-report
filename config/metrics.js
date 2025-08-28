@@ -149,6 +149,13 @@ module.exports = {
 		extract: (item) => !!getBPRules(item)?.allowsDeletions,
 		permissions: ['ADMIN'],
 	},
+	BlocksDestructivePushes: {
+		extract(item) {
+			const rules = getBPRules(item);
+			return rules ? !rules.allowsForcePushes && !rules.allowsDeletions : null;
+		},
+		permissions: ['ADMIN'],
+	},
 	DismissesStaleReviews: {
 		extract: (item) => !!getBPRules(item)?.dismissesStaleReviews,
 		permissions: ['ADMIN'],
@@ -196,5 +203,13 @@ module.exports = {
 	isPrivate: {
 		dontPrint: true,
 		extract: (item) => item.isPrivate,
+	},
+	RequireLastPushApproval: {
+		extract: (item) => !!getBPRules(item)?.requireLastPushApproval,
+		permissions: ['ADMIN', 'MAINTAIN'],
+	},
+	RequireBranchesBeUpToDateBeforeMerging: {
+		extract: (item) => !!getBPRules(item)?.requiresStrictStatusChecks,
+		permissions: ['ADMIN', 'MAINTAIN'],
 	},
 };
